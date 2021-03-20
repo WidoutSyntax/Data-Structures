@@ -24,7 +24,7 @@ void IOS()
 
 const int MX = 100005;
 vector<pair<int, int>> adj[MX];
-int marked[MX] = {0};
+int marked[MX];
 
 int prims(int u)
 {

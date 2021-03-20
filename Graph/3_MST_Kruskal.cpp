@@ -6,6 +6,8 @@
 4 2 9
 4 3 8
 2 3 6
+
+Ouput: 19
 */
 #include<bits/stdc++.h>
 #define int long long
@@ -24,51 +26,53 @@ const int MX = 100005;
 pair<int, pair<int, int>> p[MX];
 int id[MX];
 
-int root(int i)
+int root(int x)
 {
-	while (i != id[i])
+	while (x != id[x])
 	{
-		i = id[i];
-		id[i] = id[id[i]];
+		id[x] = id[id[x]];
+		x = id[x];
 	}
-	return i;
+	return x;
 }
 
-void unionn(int a, int b)
+void unionn(int x, int y)
 {
-	int p = root(a);
-	int q = root(b);
+	int p = root(x);
+	int q = root(y);
 	id[p] = id[q];
+}
+
+int kruskal(int m)
+{
+	int cost = 0;
+	sort(p, p + m);
+	for (int i = 0; i < m; i++)
+	{
+		pair<int, pair<int, int>> p1 = p[i];
+		int w = p1.first, x = p1.second.first, y = p1.second.second;
+		if (root(x) != root(y))
+		{
+			cost += w;
+			unionn(x, y);
+		}
+	}
+	return cost;
 }
 
 void solve()
 {
-	int nodes, edges;
-	cin >> nodes >> edges;
-	for (int i = 0; i < edges; i++)
+	int n, m;
+	cin >> n >> m;
+	for (int i = 0; i < m; i++)
 	{
 		int a, b, w;
 		cin >> a >> b >> w;
 		p[i] = {w, {a, b}};
 	}
 
-	for (int i = 0; i < MX; i++)
-		id[i] = i;
-
-	int cost = 0;
-
-	sort(p, p + edges);
-	for (int i = 0; i < edges; i++)
-	{
-		pair<int, pair<int, int>> p1 = p[i];
-		int x = p1.second.first, y = p1.second.second;
-		if (root(x) != root(y))
-		{
-			cost += p1.first;
-			unionn(x, y);
-		}
-	}
-	cout << cost;
+	for (int i = 0; i < MX; i++) id[i] = i;
+	cout << kruskal(m);
 	cout << endl;
 }
 

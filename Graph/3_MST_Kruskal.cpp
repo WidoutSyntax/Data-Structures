@@ -62,17 +62,18 @@ int kruskal(int m)
 
 void solve()
 {
-	int n, m;
-	cin >> n >> m;
-	for (int i = 0; i < m; i++)
+	int nodes, edges;
+	cin >> nodes >> edges;
+	for (int i = 0; i < edges; i++)
 	{
 		int a, b, w;
 		cin >> a >> b >> w;
 		p[i] = {w, {a, b}};
 	}
 
-	for (int i = 0; i < MX; i++) id[i] = i;
-	cout << kruskal(m);
+	for (int i = 0; i < MX; i++) 
+		id[i] = i;
+	cout << kruskal(edges);
 	cout << endl;
 }
 

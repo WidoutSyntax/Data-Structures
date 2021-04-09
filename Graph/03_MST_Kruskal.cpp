@@ -28,12 +28,10 @@ int id[MX];
 
 int root(int x)
 {
-	while (x != id[x])
-	{
-		id[x] = id[id[x]];
-		x = id[x];
-	}
-	return x;
+	if (x == id[x])
+		return x;
+
+	return id[x] = root(id[x]);
 }
 
 void unionn(int x, int y)

@@ -57,6 +57,12 @@ void solve()
 	int sum = 0;
 	for (int i : v)
 		sum += i;
+	
+	if ((diff + sum) & 1)
+	{
+		cout << "Not possible";
+		return;
+	}
 
 	int s1 = (diff + sum) / 2;
 

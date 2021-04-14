@@ -31,7 +31,7 @@ int subSumCount(int n, int sum)
 
 	for (int i = 1; i <= n; i++)
 	{
-		for (int j = 1; j <= sum; j++)
+		for (int j = 0; j <= sum; j++)
 		{
 			if (v[i - 1] <= j)
 				DP[i][j] = DP[i - 1][j - v[i - 1]] + DP[i - 1][j];

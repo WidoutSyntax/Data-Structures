@@ -8,6 +8,8 @@
 2 3 6
 
 Ouput: 19
+
+TC: O(ElogE + ElogV) = O(ElogV)
 */
 #include<bits/stdc++.h>
 #define int long long

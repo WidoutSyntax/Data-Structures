@@ -8,6 +8,8 @@
 2 3 6
 
 Output: 19
+
+TC: O((V+E)logV)
 */
 #include<bits/stdc++.h>
 #define int long long

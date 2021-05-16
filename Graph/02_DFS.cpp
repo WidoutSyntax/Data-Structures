@@ -7,6 +7,8 @@
 0 2
 2 4
 2 3
+
+TC: O(V + E)
 */
 #include<bits/stdc++.h>
 #define int long long

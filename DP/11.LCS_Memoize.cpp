@@ -29,7 +29,7 @@ int LCS(string str1, string str2, int n, int m)
 	if (DP[n][m] != -1)
 		return DP[n][m];
 
-	if (str1[n] == str2[m])
+	if (str1[n - 1] == str2[m - 1])
 		return DP[n][m] = 1 + LCS(str1, str2, n - 1, m - 1);
 	else
 		return DP[n][m] = max(LCS(str1, str2, n, m - 1), LCS(str1, str2, n - 1, m));

@@ -1,3 +1,8 @@
+/*
+Input: 31
+Ouput: 2 3 5 7 11 13 17 19 23 29 31
+TC: O(n log (log n))
+*/
 #include<bits/stdc++.h>
 #define int long long
 using namespace std;

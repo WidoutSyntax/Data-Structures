@@ -41,6 +41,8 @@ void Djktras(int u)
 		pair<int, int> p = pq.top();
 		pq.pop();
 		int x = p.second, w = p.first;
+        if (dist[x] < w)
+            continue;
 		for (int i = 0; i < adj[x].size(); i++)
 		{
 			int x1 = adj[x][i].second, w1 = adj[x][i].first;

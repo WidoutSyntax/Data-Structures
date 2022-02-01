@@ -57,6 +57,7 @@ int kruskal(int m)
 {
 	int cost = 0;
 	sort(p, p + m);
+
 	for (int i = 0; i < m; i++)
 	{
 		pair<int, pair<int, int>> p1 = p[i];

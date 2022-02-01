@@ -27,6 +27,7 @@ void IOS()
 const int MX = 100005;
 pair<int, pair<int, int>> p[MX];
 int id[MX];
+int rnk[MX];
 
 int root(int x)
 {
@@ -40,7 +41,15 @@ void unionn(int x, int y)
 {
 	int p = root(x);
 	int q = root(y);
-	id[p] = id[q];
+	if (rnk[p] < rnk[q])
+		id[p] = q;
+	else if (rnk[q] < rnk[p])
+		id[q] = p;
+	else
+	{
+		id[q] = p;
+		rnk[p]++;
+	}
 }
 
 int kruskal(int m)
@@ -71,8 +80,8 @@ void solve()
 		p[i] = {w, {a, b}};
 	}
 
-	for (int i = 0; i < MX; i++) 
-		id[i] = i;
+	for (int i = 0; i < MX; i++)
+		id[i] = i, rnk[i] = 0;
 	cout << kruskal(edges);
 	cout << endl;
 }

@@ -41,6 +41,7 @@ void unionn(int x, int y)
 {
 	int p = root(x);
 	int q = root(y);
+
 	if (rnk[p] < rnk[q])
 		id[p] = q;
 	else if (rnk[q] < rnk[p])
